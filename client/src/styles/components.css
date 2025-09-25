@@ -1,0 +1,398 @@
+@import "tailwindcss";
+
+@layer components {
+    /* Contenedores */
+    .container-main {
+        @apply max-w-7xl mx-auto px-4 py-12;
+    }
+
+    /* HEADER - Nike Style */
+
+    .header {
+      @apply bg-white shadow-sm border-b border-gray-100 top-0 z-50;
+    }
+
+    .header-container {
+      @apply max-w-7xl mx-auto px-6 py-4 flex justify-between items-center;
+    }
+
+    .header-brand {
+      @apply flex items-center;
+    }
+
+    .brand-title {
+      @apply text-2xl font-black text-black tracking-tight hover:text-gray-600 transition-colors duration-300
+    }
+
+    .header-nav {
+      @apply flex space-x-8
+    }
+
+    .nav-link {
+      @apply text-gray-700 hover:text-black font-medium text-base transition-all duration-300 relative;
+    }
+
+    .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300;
+    }
+
+    .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Hero section */
+.hero-section {
+  @apply bg-gradient-to-r from-black to-gray-800 text-white py-24 md:py-32;
+}
+
+.hero-content {
+  @apply max-w-4xl mx-auto px-6 text-center;
+}
+
+.hero-title {
+  @apply text-5xl md:text-7xl font-black mb-6 tracking-tight;
+}
+
+.hero-subtitle {
+  @apply text-xl md:text-2xl opacity-90 mb-12 font-light;
+}
+
+.hero-btn {
+  @apply inline-flex items-center px-8 py-4 bg-white text-black font-bold text-lg rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg;
+}
+
+
+/* PRODUCT CARDS - Nike Style */
+.card {
+  @apply bg-white border rounded-2xl overflow-hidden shadow-lg transition-all duration-500 transform hover:shadow-2xl hover:-translate-y-2;
+}
+
+.card-image-placeholder {
+  @apply w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400 font-semibold;
+  height: 250px;
+}
+
+.card-content {
+  @apply p-6
+}
+
+.card-title {
+  @apply text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition-colors duration-300;
+}
+
+.card-subtitle {
+  @apply text-sm text-gray-500 mb-3 font-medium uppercase tracking-wide;
+}
+
+.card-description {
+  @apply text-gray-600 mb-4 leading-relaxed line-clamp-2;
+}
+
+.card-price {
+  @apply text-2xl font-black text-black mb-4;
+}
+
+.card-stock {
+  @apply text-sm text-orange-600 mb-2 font-medium;
+}
+
+.card-date {
+  @apply text-xs text-gray-400 mb-6;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-black text-white font-bold py-4 px-6 rounded-full;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-black font-bold py-4 px-6 rounded-full hover:bg-gray-300 transition-all duration-300 transform hover:scale-100;;
+}
+
+.btn-remove {
+  @apply bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full;
+}
+
+/* Grid of products */
+.products-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Titles */
+.title-main {
+  @apply text-4xl md:text-5xl font-black text-black mb-12 text-center tracking-tight;
+}
+
+.page-header {
+  @apply bg-gray-50 py-16;
+}
+
+.page-title {
+  @apply text-4xl md:text-5xl font-black text-black mb-4 text-center tracking-tight;
+}
+
+.page-subtitle {
+  @apply text-xl text-center text-gray-600 font-light;
+}
+
+/* CART STYLES - Nike Style */
+.cart-empty {
+  @apply text-center py-20 bg-gray-50 rounded-2xl mx-4;
+}
+
+.cart-items {
+  @apply space-y-6 mb-12;
+}
+
+.cart-item {
+  @apply bg-white border border-gray-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300;
+}
+
+.cart-item-info {
+  @apply flex-1 mb-6 md:mb-0;
+}
+
+.cart-item-name {
+  @apply text-2xl font-bold text-black mb-2;
+}
+
+.cart-item-category {
+  @apply text-sm text-gray-500 mb-3 uppercase tracking-wide font-medium;
+}
+
+.cart-item-price {
+  @apply text-xl font-bold text-black mb-2;
+}
+
+.cart-item-quantity {
+  @apply text-lg text-gray-700 font-medium;
+}
+
+.cart-item-actions {
+  @apply flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0;
+}
+
+.cart-item-subtotal {
+  @apply text-xl font-bold text-black;
+}
+
+ .cart-summary {
+  @apply bg-black text-white rounded-2xl p-8 shadow-2xl;
+}
+
+.cart-total {
+  @apply text-center mb-8;
+}
+
+
+ .cart-actions {
+  @apply flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4;
+}
+
+/* QUANTITY CONTROLS */
+.quantity-controls {
+  @apply flex items-center space-x-3;
+}
+
+.quatity-btn {
+  @apply bg-gray-100 hover:bg-black hover:text-white text-black font-bold py-3 px-4 rounded-full transition-all duration-300 transform hover:scale-110;
+}
+
+.card-image-placeholder {
+  @apply w-full h-64 overflow-hidden bg-gray-100;
+}
+
+.card-image {
+  @apply w-full h-full object-cover
+}
+
+/* Features */
+.features-section {
+  @apply bg-gray-50 py-20 mt-20;
+}
+
+.features-grid {
+  @apply grid gap-8 mt-12;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.feature-item {
+  @apply text-center bg-white p-8 rounded-2xl shadow-lg
+}
+
+.feature-item h3 {
+  @apply text-xl font-bold text-black mb-4;
+}
+
+.feature-item p {
+  @apply text-gray-600 font-medium;
+}
+
+/* FOOTER */
+.footer {
+  @apply bg-black text-white mt-20;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-6 py-16;
+}
+
+.footer-content {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+}
+
+.footer-section {
+  @apply space-y-6;
+}
+
+.footer-title {
+  @apply text-2xl font-black text-white;
+}
+
+.footer-subtitle {
+  @apply text-lg font-bold text-gray-300 uppercase tracking-wide;
+}
+
+.footer-text {
+  @apply text-gray-400 leading-relaxed;
+}
+
+.footer-links {
+  @apply space-y-3;
+}
+
+.footer-link {
+  @apply text-gray-400 hover:text-white transition-colors duration-300 block font-medium;
+}
+
+.footer-bottom {
+  @apply border-t border-gray-800 pt-8 mt-12;
+}
+
+.footer-copyright {
+  @apply text-center text-gray-500 text-sm font-medium;
+}
+/* States */
+.loading {
+  @apply flex justify-center items-center py-16 text-xl text-gray-600;
+}
+
+.loading::after {
+  content: '';
+  @apply w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin ml-4;
+}
+
+/* Responsive - ONLY 2 BREAKPOINTS */
+/* Mobile & Small Tablets */
+@media (max-width: 768px) {
+  .container-main {
+    @apply px-4 py-8;
+  }
+
+  .hero-section {
+    @apply py-16
+  }
+
+  .hero-title {
+    @apply text-3xl mb-4
+  }
+
+  .hero-subtitle {
+    @apply text-lg mb-8;
+  }
+    
+  .hero-btn {
+    @apply px-6 py-3 text-base;
+  }
+    
+  .title-main {
+    @apply text-3xl mb-8;
+  }
+    
+  .page-title {
+    @apply text-3xl;
+  }
+    
+  .page-header {
+    @apply py-12;
+  }
+    
+  .card-content {
+    @apply p-4;
+    }
+    
+  .card-image-container {
+    height: 200px;
+  }
+    
+  .header-container {
+    @apply flex-col space-y-4 py-3;
+  }
+    
+  .header-nav {
+    @apply flex-wrap justify-center space-x-4;
+  }
+    
+  .nav-link {
+    @apply text-sm px-2 py-1;
+  }
+    
+  .cart-item {
+    @apply p-4;
+  }
+    
+  .cart-item-actions {
+    @apply flex-row flex-wrap justify-center space-y-0 space-x-4;
+  }
+    
+  .cart-actions {
+    @apply space-y-3;
+  }
+    
+  .features-section {
+    @apply py-16;
+  }
+    
+  .feature-item {
+    @apply p-6;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+  .hero-title {
+    @apply text-6xl;
+  }
+
+  .hero-section {
+    @apply py-32;
+  }
+
+  .container-main {
+    @apply px-8;
+  }
+
+  .title-main {
+    @apply text-5xl;
+  }
+
+  .cart-item-actions {
+    @apply flex-row items-center justify-between space-y-0 space-x-6;
+  }
+    
+  .cart-actions {
+    @apply flex-row space-y-0 space-x-4;
+  }
+    
+  .quantity-controls {
+    @apply justify-start;
+  }
+    
+  .cart-item-subtotal {
+    @apply text-left;
+  }
+}
+}
