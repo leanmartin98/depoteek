@@ -1,28 +1,103 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import pkg from 'pg';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import pool from './config/database.js';
+import { registerSchema, loginSchema } from './schemas/authSchemas.js';
+import { validate } from './middleware/validate.js';
 
-// Configurar mi dontenv
 dotenv.config();
-const { Pool } = pkg;
 
 const app = express()
 const PORT = process.env.PORT || 5000;
 
-// Configurar conexión a PostgreSQL
-const pool = new Pool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-});
-
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// RUTAS DE AUTENTICACIÓN CON ZOD
+// REGISTER - Registrar usuario con validación Zod
+app.post('/api/auth/register', validate(registerSchema), async (req, res) => {
+    try {
+        const { email, password, first_name, last_name } = req.body;
+
+        //Verificamos si el usuario ya existe
+        const userExists = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        if(userExists.rows.length > 0) {
+            return res.status(400).json({ error: 'El email ya está registrado' });
+        }
+
+        // Encriptar contraseña
+        const hashedPassword = await bcrypt.hash(password, 10)
+
+        // Crear usuario
+        const result = await pool.query(
+            'INSERT INTO users (email, password, first_name, last_name) VALUES ($1, $2, $3, $4) RETURNING id, email, first_name, last_name',
+            [email, hashedPassword, first_name, last_name]
+        );
+
+        const user = result.rows[0];
+
+        //Crear token
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET || 'secreto',
+            { expiresIn: '7d' }
+        );
+
+        res.status(201).json({
+            message: 'Usuario registrado con exito',
+            token,
+            user
+        });
+        
+    } catch (error) {
+        console.error('Error en register:', error);
+        res.status(500).json({ error: 'Error al registrar usuario' })
+    }
+});
+
+// LOGIN - Iniciar sesión con validación Zod
+app.post('/api/auth/login', validate(loginSchema), async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        //Buscar usuario
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email])
+        if (result.rows.length === 0) {
+            return res.status(400).json({ error: 'Email o contraseña incorrectos'})
+        }
+
+        const user = result.rows[0];
+
+        //Verificar contraseña
+        const validatePassword = await bcrypt.compare(password, user.password);
+        if(!validatePassword) {
+            return res.status(400).json({ error: 'Email o contraseña incorrecta'})
+        }
+
+        //Crear token
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET || 'secreto',
+            { expiresIn: '7d' }
+        );
+
+        res.json({
+            message: 'Login exitoso',
+            token,
+            user: {
+                id: user.id,
+                email: user.email,
+                first_name: user.first_name,
+                last_name: user.last_name
+            }
+        })
+    } catch (error) {
+        console.error('Error en login:', error);
+        res.status(500).json({ error: 'Error al iniciar sesión' });
+    }
+});
 // Ruta de prueba
 app.get('/api/test', (req, res) => {
     res.json({message: '¡Servidor funcionando!'})

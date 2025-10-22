@@ -107,7 +107,7 @@ export const CartProvider = ({ children }) => {
             clearCart,
             getItemCount
         }}>
-            {children}
+        {children}
         </CartContext.Provider>
     );
 };

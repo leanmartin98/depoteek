@@ -6,8 +6,9 @@
         @apply max-w-7xl mx-auto px-4 py-12;
     }
 
+    /* ============================== */
     /* HEADER - Nike Style */
-
+    /* ============================== */
     .header {
       @apply bg-white shadow-sm border-b border-gray-100 top-0 z-50;
     }
@@ -41,7 +42,9 @@
     @apply w-full;
   }
 
+/* ============================== */
   /* Hero section */
+/* ============================== */
 .hero-section {
   @apply bg-gradient-to-r from-black to-gray-800 text-white py-24 md:py-32;
 }
@@ -62,8 +65,9 @@
   @apply inline-flex items-center px-8 py-4 bg-white text-black font-bold text-lg rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg;
 }
 
-
+/* ============================== */
 /* PRODUCT CARDS - Nike Style */
+/* ============================== */
 .card {
   @apply bg-white border rounded-2xl overflow-hidden shadow-lg transition-all duration-500 transform hover:shadow-2xl hover:-translate-y-2;
 }
@@ -101,7 +105,9 @@
   @apply text-xs text-gray-400 mb-6;
 }
 
+/* ============================== */
 /* Buttons */
+/* ============================== */
 .btn-primary {
   @apply bg-black text-white font-bold py-4 px-6 rounded-full;
 }
@@ -114,13 +120,17 @@
   @apply bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full;
 }
 
+/* ============================== */
 /* Grid of products */
+/* ============================== */
 .products-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+/* ============================== */
 /* Titles */
+/* ============================== */
 .title-main {
   @apply text-4xl md:text-5xl font-black text-black mb-12 text-center tracking-tight;
 }
@@ -137,7 +147,9 @@
   @apply text-xl text-center text-gray-600 font-light;
 }
 
+/* ============================== */
 /* CART STYLES - Nike Style */
+/* ============================== */
 .cart-empty {
   @apply text-center py-20 bg-gray-50 rounded-2xl mx-4;
 }
@@ -191,7 +203,9 @@
   @apply flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4;
 }
 
+/* ============================== */
 /* QUANTITY CONTROLS */
+/* ============================== */
 .quantity-controls {
   @apply flex items-center space-x-3;
 }
@@ -208,7 +222,9 @@
   @apply w-full h-full object-cover
 }
 
+/* ============================== */
 /* Features */
+/* ============================== */
 .features-section {
   @apply bg-gray-50 py-20 mt-20;
 }
@@ -230,7 +246,162 @@
   @apply text-gray-600 font-medium;
 }
 
+/* ============================== */
+/* AUTH FORMS */
+/* ============================== */
+.auth-container {
+  @apply min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4;
+}
+
+.auth-card {
+  @apply max-w-md w-full bg-white rounded-2xl shadow-lg p-8;
+}
+
+.auth-title {
+  @apply text-3xl font-black text-center text-black mb-8;
+}
+
+.auth-error {
+  @apply bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6 text-sm;
+}
+
+.auth-success {
+  @apply bg-green-50 border border-green-200 text-green-600 px-4 py-3 rounded-lg mb-6 text-sm;
+}
+
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black transition-all duration-200;
+}
+
+.form-input:focus {
+  @apply border-black
+}
+
+.form-helper {
+  @apply text-xs text-gray-500 mt-1;
+}
+
+.form-button {
+  @apply w-full bg-black text-white font-bold py-3 px-4 rounded-full hover:bg-gray-800 transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed;
+}
+
+.auth-footer {
+  @apply text-center text-gray-600 mt-6;
+}
+
+.auth-link {
+  @apply text-black font-bold hover:underline;
+}
+
+/* ============================== */
+/* PROFILE PAGE */
+/* ============================== */
+.profile-container {
+  @apply max-w-4xl mx-auto;
+}
+
+.profile-card {
+  @apply bg-white rounded-2xl shadow-lg p-8 mb-8;
+}
+
+.profile-section-title {
+  @apply text-2xl font-bold text-black mb-6;
+}
+
+/* ============================== */
+/* Avatar y user info */
+/* ============================== */
+.profile-avatar {
+  @apply w-20 h-20 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold;
+}
+
+.profile-user-name {
+  @apply text-xl font-bold text-black;
+}
+
+.profile-user-email {
+  @apply text-gray-600;
+}
+
+/* ============================== */
+/* Grid de información */
+/* ============================== */
+.profile-info-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4 mt-6;
+}
+
+.profile-info-item {
+  @apply border border-gray-200 rounded-lg p-4;
+}
+
+.profile-info-label {
+  @apply text-sm text-gray-600;
+}
+
+.profile-info-value {
+  @apply text-lg font-semibold text-black;
+}
+
+.profile-info-item-full {
+  @apply md:col-span-2;
+}
+
+/* ============================== */
+/* Cart items en profile */
+/* ============================== */
+.profile-cart-item {
+  @apply flex justify-between items-center border-b border-gray-200 pb-4;
+}
+
+.profile-cart-item-info {
+  @apply space-y-1;
+}
+
+.profile-cart-item-name {
+  @apply font-semibold text-black;
+}
+
+.profile-cart-item-quantity {
+  @apply text-sm text-gray-600;
+}
+
+.profile-cart-item-price {
+  @apply font-bold text-black;
+}
+
+/* ============================== */
+/* Total del carrito */
+/* ============================== */
+.profile-cart-total {
+  @apply mt-6 pt-6 border-t border-gray-300;
+}
+
+.profile-cart-total-row {
+  @apply flex justify-between items-center text-xl font-bold;
+}
+
+.profile-cart-total-info {
+  @apply text-sm text-gray-600 mt-2;
+}
+
+/* ============================== */
+/* Botones de acción */
+/* ============================== */
+.profile-action-button {
+  @apply  bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-full;
+}
+
+/* ============================== */
 /* FOOTER */
+/* ============================== */
 .footer {
   @apply bg-black text-white mt-20;
 }
@@ -275,7 +446,10 @@
 .footer-copyright {
   @apply text-center text-gray-500 text-sm font-medium;
 }
+
+/* ============================== */
 /* States */
+/* ============================== */
 .loading {
   @apply flex justify-center items-center py-16 text-xl text-gray-600;
 }

@@ -320,7 +320,7 @@ Visita: **http://localhost:5173**
 
 ### **Funcionalidades Planeadas**
 
-- [ ] **Sistema de Usuarios**: Registro, login y perfiles
+- [✅] **Sistema de Usuarios**: Registro, login y perfiles
 - [ ] **Búsqueda Avanzada**: Filtros por categoría, precio y nombre
 - [ ] **Página de Detalles**: Vista individual de cada producto
 - [ ] **Wishlist**: Lista de productos favoritos
@@ -341,7 +341,7 @@ Visita: **http://localhost:5173**
 
 - Verificar que PostgreSQL esté ejecutándose
 - Revisar credenciales en el archivo `.env`
-- Confirmar que la base de datos `ecommerce_db` existe
+- Confirmar que la base de datos `depoteek_db` existe
 
 ### **Error: "Module not found"**
 
