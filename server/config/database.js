@@ -2,7 +2,9 @@ import pkg from 'pg';
 import dontenv from 'dotenv';
 
 // Configurar conexión a PostgreSQL
-dontenv.config();
+if (process.env.NODE_ENV !== 'production') {
+    dontenv.config();
+}
 
 const { Pool } = pkg;
 
