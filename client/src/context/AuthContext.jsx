@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://depoteek.onrender.com/api';
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -24,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     // Registrar usuario
     const register = async (userData) => {
         try {
-            const res = await axios.post('/api/auth/register', userData);
+            const res = await axios.post(`${API_BASE_URL}/auth/register`, userData);
             const { token, user } = res.data;
 
             // Guardar en localStorage
@@ -47,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     // Iniciar sesión
     const login = async (credentials) => {
         try {
-            const res = await axios.post('/api/auth/login', credentials);
+            const res = await axios.post(`${API_BASE_URL}/auth/login`, credentials);
             const { token, user } = res.data;
 
             localStorage.setItem('token', token);
