@@ -7,29 +7,29 @@ const Home = () => {
             <div className="hero-content">
                 <h1 className="hero-title">Welcome my E-commerce</h1>
                 <p className="hero-subtitle">
-                    Encuentra los mejores productos al mejor precio
+                    Discover the best products at unbeatable prices!
                 </p>
                 <Link to="/products" className="btn-primary hero-btn">
-                Ver productos
+                View products
                 </Link>
             </div>
         </section>
 
         <section className="features-section">
           <div className="container-main">
-            <h2 className="title-main">¿Por qué elegirnos?</h2>
+            <h2 className="title-main">Why shop with us?</h2>
             <div className="features-grid">
               <div className="feature-item">
-                <h3>Envío Gratis</h3>
-                <p>En todas tus compras superiores a $500</p>
+                <h3>Enjoy free shipping</h3>
+                <p>On all orders over $500</p>
               </div>
               <div className="feature-item">
-                <h3>Garantia Total</h3>
-                <p>30 dias para devolver sin preguntas</p>
+                <h3>100% satisfaction guaranteed</h3>
+                <p>30-day hassle-free returns</p>
               </div>
               <div className="feature-item">
-                <h3>Soporte 24/7</h3>
-                <p>Estamos aquí siempre para brindarte ayuda</p>
+                <h3>Support 24/7</h3>
+                <p>We’re always here to help you</p>
               </div>
             </div>
           </div>

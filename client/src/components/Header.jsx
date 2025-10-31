@@ -1,10 +1,11 @@
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { ShoppingCart } from 'lucide-react';
 
 const Header = () => {
     const { getItemCount } = useCart();
-    const { user, logout, isAuthenticated } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     return (
         <header className="header sticky">
@@ -12,33 +13,30 @@ const Header = () => {
                 <div className="header-brand">
                     <Link to="/" className="brand-title">Depoteek</Link>
                 </div>
-
-
                 <nav className="header-nav">
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/products" className="nav-link">Products</Link>
-                    <Link to="/cart" className="nav-link">
-                     Cart {getItemCount()}
-                    </Link>
-
                     {isAuthenticated() ? (
                         <>
-                        <span className="nav-link">
-                            Hola, {user?.first_name || user?.email}
-                        </span>
                         <Link to='/profile' className="nav-link">
-                        Perfil
+                        Profile
                         </Link>
-                        <button onClick={logout} className="nav-link">
-                            Cerrar Sesión
-                        </button>
                         </>
                     ) : (
                         <>
                         <Link to='/login' className="nav-link">Login</Link>
-                        <Link to='/register' className="nav-link">Register</Link>
                         </>
                     )}
+
+                    <Link to="/cart" className="nav-link relative">
+                    <div className="flex items-center space-x-1">
+                        <ShoppingCart size={20} />
+                        <span></span>
+                    </div>
+                    {getItemCount() > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">{getItemCount()}</span>
+                    )}
+                    </Link>
                 </nav>
             </div>
         </header>
