@@ -150,10 +150,10 @@ INSERT INTO categories (name, description) VALUES
 ('Ropa', 'vestimenta y accesorios');
 
 INSERT INTO products (name, description, price, stock, category_id, image_url) VALUES
-('iPhone 17', 'Ultimo modelo de iPhone', 999.99, 10, 1, 'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=300&fit=crop'),
-('Camiseta', 'Camiseta de algodón', 29.99, 50, 2, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop'),
-('Laptop Gaming', 'Laptop para gaming de alta gama', 1299.99, 5, 1, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop'),
-('Jeans', 'Jeans de mezclilla', 79.99, 30, 2, 'https://images.unsplash.com/photo-1542272454315-7ad9f8731736?w=400&h=300&fit=crop');
+('iPhone 17', 'latest iphone model', 999.99, 10, 1, 'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=300&fit=crop'),
+('Camiseta', 'cotton t-shirt', 29.99, 50, 2, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop'),
+('Laptop Gaming', 'high-end gaming computer', 1299.99, 5, 1, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop'),
+('Jeans', 'denim jeans', 79.99, 30, 2, 'https://images.unsplash.com/photo-1542272454315-7ad9f8731736?w=400&h=300&fit=crop');
 ```
 
 ### **3. Configurar el Backend**
@@ -292,7 +292,7 @@ Visita: **http://localhost:5173**
 {
   id: 1,
   name: "iPhone 17",
-  description: "Ultimo modelo de iPhone",
+  description: "latest iphone model",
   price: 999.99,
   stock: 10,
   category_id: 1,
