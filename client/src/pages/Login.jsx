@@ -40,7 +40,7 @@ const Login = () => {
     return (
         <div className="auth-container">
             <div className="auth-card">
-                <h2 className="auth-title">Iniciar Sesión</h2>
+                <h2 className="auth-title">Sign In</h2>
 
                 {error && (
                     <div className="auth-error">{error}</div>
@@ -61,7 +61,7 @@ const Login = () => {
                     </div>
 
                     <div className="form-group">
-                        <label className="form-label">Contraseña</label>
+                        <label className="form-label">Password</label>
                         <input 
                         type="password"
                         name="password"
@@ -78,13 +78,13 @@ const Login = () => {
                     disabled={loading}
                     className="form-button"
                     >
-                    {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}</button>
+                    {loading ? 'logging in...' : 'Log in'}</button>
                 </form>
 
                 <p className="auth-footer">
-                    ¿No tienes cuenta?{''}
+                    Dont't have an account?{' '}
                     <Link to='/register' className="auth-link">
-                    Registrate
+                    Register
                     </Link>
                 </p>
             </div>

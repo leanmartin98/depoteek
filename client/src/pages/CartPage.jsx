@@ -7,9 +7,9 @@ const CartPage = () => {
         return (
             <div className="container-main">
                 <div className="cart-empty">
-                    <h2 className="title-main">Tu carrito esta vacio</h2>
+                    <h2 className="title-main">Your cart is empty</h2>
                     <p className="text-gray-600 text-center">
-                        ¡Agrega algunos productos para comenzar!
+                        Add some products to get started!
                     </p>
                 </div>
             </div>
@@ -18,16 +18,16 @@ const CartPage = () => {
 
     return (
         <div className="container-main">
-            <h2 className="title-main">Tu carrito de Compras</h2>
+            <h2 className="title-main">Your shopping cart</h2>
 
             <div className="cart-items">
                 {items.map(item => (
                     <div key={item.id} className="cart-item">
                         <div className="cart-item-info">
                             <h3 className="cart-item-name">{item.name}</h3>
-                            <p className="cart-item-category">Categoria: {item.category_name}</p>
+                            <p className="cart-item-category">Category: {item.category_name}</p>
                             <p className="cart-item-price">{item.price}</p>
-                            <p className="cart-item-quantity">Cantidad: {item.quantity}</p>
+                            <p className="cart-item-quantity">Quantity: {item.quantity}</p>
                         </div>
 
                         <div className="cart-item-actions">
@@ -39,10 +39,10 @@ const CartPage = () => {
                             </div>
 
                             <p className="cart-item-subtotal">
-                                subtotal: ${(item.price * item.quantity).toFixed(2)}
+                                Subtotal: ${(item.price * item.quantity).toFixed(2)}
                             </p>
                             <button onClick={() => removeItem(item.id)} className="btn-remove">
-                                Eliminar
+                                Remove
                             </button>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ const CartPage = () => {
                 </div>
                 <div className="cart-actions">
                     <button onClick={clearCart} className="btn-secondary">
-                        Vaciar carrito
+                        Empty cart
                     </button>
                 </div>
             </div>

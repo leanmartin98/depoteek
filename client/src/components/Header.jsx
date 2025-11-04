@@ -10,8 +10,15 @@ const Header = () => {
     return (
         <header className="header sticky">
             <div className="header-container">
+                {/* Logo SVG */}
                 <div className="header-brand">
-                    <Link to="/" className="brand-title">Depoteek</Link>
+                    <Link to="/" className="brand-title">
+                    <img 
+                    src="/clothing-store-.svg" 
+                    alt="depoteek" 
+                    className="h-15 w-auto"
+                    />
+                    </Link>
                 </div>
                 <nav className="header-nav">
                     <Link to="/" className="nav-link">Home</Link>

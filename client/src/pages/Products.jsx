@@ -22,9 +22,9 @@ const Products = () => {
   return (
     <div>
         <div className="page-header">
-            <h1 className="page-title">Todos nuestros Productos</h1>
+            <h1 className="page-title">All our products</h1>
             <p className="page-subtitle">
-                Explora nuestra colección completa
+                Explore our complete collection
             </p>
         </div>
 

@@ -9,7 +9,7 @@ const Profile = () => {
     return (
         <div className="container-main">
             <div className="profile-container">
-                <h1 className="title-main">My Profile</h1>
+                <h1 className="title-main">👋 Hi, {user?.first_name}</h1>
 
                 {/* Información del usuario */}
                 <div className="profile-card">
@@ -42,7 +42,7 @@ const Profile = () => {
                             </div>
 
                             <div className="profile-info-item">
-                                <p className="profile-info-label">Last Name</p>
+                                <p className="profile-info-label">Surname</p>
                                 <p className="profile-info-value">{user?.last_name}</p>
                             </div>
 

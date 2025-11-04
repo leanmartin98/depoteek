@@ -43,7 +43,7 @@ const Register = () => {
     return (
         <div className='auth-container'>
             <div className='auth-card'>
-                <h2 className='auth-title'>Crear Cuenta</h2>
+                <h2 className='auth-title'>Sign Up</h2>
 
                 {error && (
                     <div className='auth-error'>
@@ -53,7 +53,7 @@ const Register = () => {
 
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className='form-group'>
-                        <label className="form-label">Nombre</label>
+                        <label className="form-label">Name</label>
                         <input 
                         type='text'
                         name='first_name'
@@ -66,7 +66,7 @@ const Register = () => {
                     </div>
 
                     <div className='form-group'>
-                        <label className="form-label">Apellido</label>
+                        <label className="form-label">Surname</label>
                         <input 
                         type='text'
                         name='last_name'
@@ -92,7 +92,7 @@ const Register = () => {
                     </div>
 
                     <div className='form-group'>
-                        <label className="form-label">Contraseña</label>
+                        <label className="form-label">Password</label>
                         <input 
                         type='password'
                         name='password'
@@ -102,21 +102,21 @@ const Register = () => {
                         className='form-input'
                         placeholder='Minimo 6 caracteres'
                         />
-                        <p className='form-helper'>Debe contener letras y números</p>
+                        <p className='form-helper'>It must contain letters and numbers.</p>
                     </div>
 
                     <button 
                     type='submit'
                     disabled={loading}
                     className='form-button'>
-                        {loading ? 'Registrando...' : 'Registrarse'}
+                        {loading ? 'recording...' : 'Register'}
                     </button>
                 </form>
 
                 <p className='auth-footer'>
-                    ¿Ya tienes cuenta?{' '}
+                    Do you already have an account?{' '}
                     <Link to='/login' className='auth-link'>
-                    Inicia sesión
+                    Sign In
                     </Link>
                 </p>
             </div>

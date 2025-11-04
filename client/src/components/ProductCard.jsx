@@ -24,11 +24,11 @@ const ProductCard = ({ product }) => {
 
             <div className="card-content">
             <h3 className="card-title">{product.name}</h3>
-            <p className="card-subtitle">Categoria: {product.category_name}</p>
+            <p className="card-subtitle">Category: {product.category_name}</p>
             <p className="card-description">{product.description}</p>
             <p className="card-price">{product.price}</p>
-            <p className="card-stock">Stock: {product.stock} unidades</p>
-            <p className="card-date">Creado: {new Date(product.created_at).toLocaleDateString()}</p>
+            <p className="card-stock">Stock: {product.stock} units</p>
+            <p className="card-date">Create: {new Date(product.created_at).toLocaleDateString()}</p>
             <button className="btn-primary" onClick={handleAddToCart}>Add to cart</button>
             </div>
         </div>
