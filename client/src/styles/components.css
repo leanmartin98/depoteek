@@ -45,24 +45,36 @@
 /* ============================== */
   /* Hero section */
 /* ============================== */
-.hero-section {
-  @apply bg-gradient-to-r from-black to-gray-800 text-white py-24 md:py-32;
+.hero-section-image {
+  @apply bg-white py-12 md:py-20;
 }
 
-.hero-content {
-  @apply max-w-4xl mx-auto px-6 text-center;
+.hero-content-split {
+  @apply max-w-4xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center;
 }
 
-.hero-title {
-  @apply text-5xl md:text-7xl font-black mb-6 tracking-tight;
+.hero-text {
+  @apply space-y-6;
 }
 
-.hero-subtitle {
-  @apply text-xl md:text-2xl opacity-90 mb-12 font-light;
+.hero-title-large {
+  @apply text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-black
 }
 
-.hero-btn {
-  @apply inline-flex items-center px-8 py-4 bg-white text-black font-bold text-lg rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg;
+.hero-subtitle-large {
+  @apply text-5xl md:text-2xl text-gray-600 font-light;
+}
+
+.hero-btn-large {
+  @apply inline-flex items-center px-8 py-4 bg-black text-white font-bold text-lg rounded-full;
+}
+
+.hero-image-container {
+  @apply relative;
+}
+
+.hero-product-image {
+  @apply w-full h-auto max-w-lg mx-auto object-cover rounded-2xl shadow-2xl;
 }
 
 /* ============================== */
@@ -98,7 +110,7 @@
 }
 
 .card-stock {
-  @apply text-sm text-orange-600 mb-2 font-medium;
+  @apply text-sm text-green-700 mb-2 font-medium;
 }
 
 .card-date {
@@ -109,15 +121,15 @@
 /* Buttons */
 /* ============================== */
 .btn-primary {
-  @apply bg-black text-white font-bold py-4 px-6 rounded-full;
+  @apply bg-black text-white font-bold py-4 px-6 rounded-full cursor-pointer;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 text-black font-bold py-4 px-6 rounded-full hover:bg-gray-300 transition-all duration-300 transform hover:scale-100;;
+  @apply bg-gray-200 text-black font-bold py-4 px-6 rounded-full hover:bg-gray-300 transition-all duration-300 transform hover:scale-100 cursor-pointer;
 }
 
 .btn-remove {
-  @apply bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full;
+  @apply bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full cursor-pointer;
 }
 
 /* ============================== */
@@ -461,25 +473,25 @@
 
 /* Responsive - ONLY 2 BREAKPOINTS */
 /* Mobile & Small Tablets */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container-main {
     @apply px-4 py-8;
   }
 
-  .hero-section {
-    @apply py-16
+  .hero-content-split {
+    @apply grid-cols-1 text-center;
   }
 
-  .hero-title {
-    @apply text-3xl mb-4
-  }
-
-  .hero-subtitle {
-    @apply text-lg mb-8;
+  .hero-text {
+    @apply space-y-6;
   }
     
-  .hero-btn {
-    @apply px-6 py-3 text-base;
+  .hero-btn-large {
+    @apply mx-auto;
+  }
+
+  .hero-product-image {
+    @apply max-w-md;
   }
     
   .title-main {

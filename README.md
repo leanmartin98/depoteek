@@ -13,10 +13,21 @@ Un e-commerce moderno y elegante inspirado en el diseño de Nike, construido con
 
 ### 🛍️ **Funcionalidades del E-commerce**
 
-- **Catálogo de Productos**: Visualización de productos con imágenes, precios y descripciones
+- **Catálogo de Productos**: Catálogo de productos con imágenes optimizadas (WebP)
 - **Carrito de Compras**: Agregar, quitar y modificar cantidades de productos
 - **Gestión de Stock**: Control de inventario en tiempo real
+- **Sistema de autenticación**: Registro y login
+- **Gestión de perfil de usuario**
+- **Rutas protegidas**: Para usuarios autenticados
 - **Cálculo Automático**: Subtotales y total general actualizados instantáneamente
+
+### 🔐 **Seguridad**
+
+- **Contraseñas encriptadas con bcrypt**
+- **Autenticación con JWT (JSON Web Tokens)**
+- **Validación de datos con Zod**
+- **Variables de entorno para credenciales sensibles**
+- **Protección CORS configurada**
 
 ### 📱 **Diseño Responsivo**
 
@@ -26,38 +37,55 @@ Un e-commerce moderno y elegante inspirado en el diseño de Nike, construido con
 
 ## 🏗️ Arquitectura del Proyecto
 
-### **Frontend (Cliente)**
-
 ```
-client/
-├── src/
-│   ├── components/          # Componentes reutilizables
-│   │   ├── Header.jsx       # Navegación principal
-│   │   ├── Footer.jsx       # Pie de página
-│   │   ├── ProductCard.jsx  # Tarjeta individual de producto
-│   │   └── ProductList.jsx  # Lista de productos
-│   ├── pages/               # Páginas de la aplicación
-│   │   ├── Home.jsx         # Página de inicio
-│   │   ├── Products.jsx     # Catálogo completo
-│   │   └── CartPage.jsx     # Página del carrito
-│   ├── context/             # Estado global
-│   │   └── CartContext.jsx  # Gestión del carrito
-│   ├── services/            # Comunicación con el backend
-│   │   └── api.js          # Llamadas a la API
-│   └── styles/             # Estilos personalizados
-│       └── components.css  # CSS con Tailwind
-```
-
-### **Backend (Servidor)**
-
-```
-server/
-├── server.js              # Servidor principal Express
-├── config/                # Configuraciones
-│   └── database.js        # Conexión a PostgreSQL
-├── routes/                # Rutas de la API
-├── models/                # Modelos de datos
-└── middleware/            # Middlewares personalizados
+depoteek/
+├── client/                    # Frontend React
+│   ├── public/
+│   │   ├── images/           # Imágenes estáticas
+│   │   └── logo.svg          # Logo del sitio
+│   ├── src/
+│   │   ├── components/       # Componentes reutilizables
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── ProductList.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── pages/            # Páginas de la aplicación
+│   │   │   ├── Home.jsx
+│   │   │   ├── Products.jsx
+│   │   │   ├── CartPage.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Profile.jsx
+│   │   ├── context/          # Estado global
+│   │   │   ├── CartContext.jsx
+│   │   │   └── AuthContext.jsx
+│   │   ├── services/         # Llamadas a la API
+│   │   │   └── api.js
+│   │   ├── styles/           # Estilos
+│   │   │   └── components.css
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   ├── vite.config.js
+│   └── tailwind.config.js
+│
+├── server/                    # Backend Node.js
+│   ├── config/               # Configuraciones
+│   │   ├── database.js       # Conexión a PostgreSQL
+│   │   └── cloudinary.js     # Configuración Cloudinary
+│   ├── middleware/           # Middlewares
+│   │   ├── auth.js           # Autenticación JWT
+│   │   └── validate.js       # Validación con Zod
+│   ├── routes/               # Rutas de la API
+│   │   └── upload.js         # Upload de imágenes
+│   ├── schemas/              # Schemas de validación
+│   │   └── authSchemas.js    # Validaciones con Zod
+│   ├── server.js             # Archivo principal
+│   ├── package.json
+│   └── .env                  # Variables de entorno
+│
+└── README.md
 ```
 
 ### **Base de Datos**
@@ -70,6 +98,46 @@ PostgreSQL Database
 └── orders               # Órdenes de compra
 ```
 
+## 🎯 Api Endpoints
+
+### **Autenticación**
+
+```bash
+POST   /api/auth/register     Registrar nuevo usuario
+POST   /api/auth/login        Iniciar sesión
+```
+
+### **Productos**
+
+```bash
+GET    /api/products          Obtener todos los productos
+GET    /api/products/:id      Obtener producto por ID
+```
+
+### **Upload**
+
+```bash
+POST   /api/upload/image      Subir imagen a Cloudinary
+```
+
+## 🔧 Scripts Disponibles
+
+### **Backend (server/)**
+
+```bash
+npm start          # Iniciar servidor en producción
+npm run dev        # Iniciar servidor en desarrollo con nodemon
+```
+
+### **Frontend (client/)**
+
+```bash
+npm run dev        # Iniciar servidor de desarrollo
+npm run build      # Construir para producción
+npm run preview    # Preview de build de producción
+npm test           # Ejecutar tests con Vitest
+```
+
 ## 🚀 Tecnologías Utilizadas
 
 ### **Frontend**
@@ -80,6 +148,7 @@ PostgreSQL Database
 - **Tailwind CSS**: Framework de CSS utilitario
 - **Context API**: Gestión de estado global
 - **Axios**: Cliente HTTP para peticiones al servidor
+- **Lucid React**: Iconos
 
 ### **Backend**
 
@@ -87,7 +156,47 @@ PostgreSQL Database
 - **Express**: Framework web minimalista
 - **PostgreSQL**: Base de datos relacional
 - **ES Modules**: Sintaxis moderna de JavaScript
-- **CORS**: Configuración para peticiones cross-origin
+- **Cors**: Configuración para peticiones cross-origin
+- **Bcrypt**: Encriptación de contraseñas
+- **Zod**: Validación de schemas
+- **Cloudinary**: Gestión de imágenes en la nube
+- **Multer**: Manejo de archivos
+
+## 🌐 Deployment en Producción
+
+### **Frontend en Vercel**
+
+1. Conecta tu repositorio con Vercel
+2. Configuración:
+
+- **framework Preset**: Vite
+- **Root directory**: `client`
+- **Build command**: `npm run build`
+- **Output**: `dist`
+
+3. Variables de entorno:
+
+```bash
+VITE_API_URL=https://tu-backend.onrender.com/api
+```
+
+### **Backend en Render**
+
+1. Conecta tu repositorio con Render
+2. Configuración:
+
+- **Evironment**: Node
+- **Root directory**: `server`
+- **Build command**: `npm install`
+- **Start Command**: `npm start`
+
+3. Variables de entorno: Todas las del .env
+
+### **Base de datos en Render**
+
+1. Crear PostgreSQL Database en Render
+2. Ejecutar el script SQL de creación de tablas
+3. Conectar el backend usando las credenciales proporcionadas
 
 ### **Herramientas de Desarrollo**
 
@@ -181,6 +290,14 @@ DB_PORT=5432
 DB_NAME=nombre_de_tu_db
 DB_USER=usuario_db
 DB_PASSWORD=tu_contraseña_de_postgresql
+
+JWT_SECRET=tu_secreto_super_seguro
+NODE_ENV=development
+
+# Cloudinary (opcional para imágenes)
+CLOUDINARY_CLOUD_NAME=tu_cloud_name
+CLOUDINARY_API_KEY=tu_api_key
+CLOUDINARY_API_SECRET=tu_api_secret
 ```
 
 ### **4. Configurar el Frontend**
@@ -320,7 +437,6 @@ Visita: **http://localhost:5173**
 
 ### **Funcionalidades Planeadas**
 
-- [✅] **Sistema de Usuarios**: Registro, login y perfiles
 - [ ] **Búsqueda Avanzada**: Filtros por categoría, precio y nombre
 - [ ] **Página de Detalles**: Vista individual de cada producto
 - [ ] **Wishlist**: Lista de productos favoritos
@@ -357,6 +473,14 @@ Visita: **http://localhost:5173**
 
 - Verificar que CartProvider envuelva toda la aplicación
 - Revisar la consola del navegador en busca de errores
+
+### **Render Free Tier**
+
+El backend en Render puede "dormirse" después de 15 minutos de inactividad. El primer request después de esto puede tardar 30-60 segundos.
+
+### **Imágenes en desarrollor**
+
+Las imágenes se sirven desde Cloudinary. Asegúrate de tener configuradas las credenciales correctamente.
 
 ## 👤 Autor
 

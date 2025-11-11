@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-        <section className="hero-section">
-            <div className="hero-content">
-                <h1 className="hero-title">Welcome my E-commerce</h1>
-                <p className="hero-subtitle">
+      {/* Hero section con imagen */}
+        <section className="hero-section-image">
+          {/* Contenedor con dos columnas */}
+            <div className="hero-content-split">
+              {/* Columna izquierda - texto */}
+              <div className="hero-text">
+                <h1 className="hero-title-large">Welcome my E-commerce</h1>
+                <p className="hero-subtitle-large">
                     Discover the best products at unbeatable prices!
                 </p>
-                <Link to="/products" className="btn-primary hero-btn">
+                <Link to="/products" className="hero-btn-large">
                 View products
                 </Link>
+              </div>
+              {/* columna derecha - imagen */}
+              <div className="hero-image-container">
+                <img src="/img/cyber-monday-shopping.avif" alt="featured product" className="hero-product-image" />
+              </div>
             </div>
         </section>
 

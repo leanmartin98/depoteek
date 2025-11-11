@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from './config/database.js';
+import uploadRoutes from './routes/upload.js';
 import { registerSchema, loginSchema } from './schemas/authSchemas.js';
 import { validate } from './middleware/validate.js';
 
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/upload', uploadRoutes);
 
 // RUTAS DE AUTENTICACIÓN CON ZOD
 // REGISTER - Registrar usuario con validación Zod

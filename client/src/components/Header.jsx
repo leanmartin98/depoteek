@@ -14,7 +14,7 @@ const Header = () => {
                 <div className="header-brand">
                     <Link to="/" className="brand-title">
                     <img 
-                    src="/clothing-store-.svg" 
+                    src="/logo/clothing-store-.svg" 
                     alt="depoteek" 
                     className="h-15 w-auto"
                     />
