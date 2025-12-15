@@ -39,3 +39,16 @@ export const loginSchema = z.object({
     .string({ required_error: 'La contraseña es requerida' })
     .min(1, 'La contraseña no puede estar vacia')
 });
+
+// Schema de pagos - Mercado Pago
+export const paymentSchema = z.object({
+    token: z.string().min(1, 'Token required'),
+    installments: z.number().min(1).max(36),
+    paymentMethodId: z.string(),
+    issuerId: z.string().nullable().optional(),
+    amount: z.number().positive('Amount must be greater than 0'),
+    cartItems: z.array(z.object({
+        id: z.number(),
+        quantity: z.number()
+    }))
+});

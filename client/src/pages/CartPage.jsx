@@ -1,4 +1,5 @@
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
     const { items, total, removeItem, updateQuantity, clearCart } = useCart();
@@ -57,6 +58,13 @@ const CartPage = () => {
                     <button onClick={clearCart} className="btn-secondary">
                         Empty cart
                     </button>
+
+                    {/* {Botón de checkout} */}
+                    <Link 
+                    to="/checkout"
+                    className="btn-secondary">
+                        Proceed to Checkout
+                    </Link>
                 </div>
             </div>
         </div>

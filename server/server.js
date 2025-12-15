@@ -7,6 +7,7 @@ import pool from './config/database.js';
 import uploadRoutes from './routes/upload.js';
 import { registerSchema, loginSchema } from './schemas/authSchemas.js';
 import { validate } from './middleware/validate.js';
+import  paymentRoutes from './routes/payments.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/api/upload', uploadRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // RUTAS DE AUTENTICACIÓN CON ZOD
 // REGISTER - Registrar usuario con validación Zod
@@ -156,4 +158,3 @@ app.get('/api/products/:id', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 })
-

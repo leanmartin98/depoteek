@@ -14,6 +14,18 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
+
+// Verificar si se conecta
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.log('❌ Error connecting to database:', err.message);
+    } else {
+        console.log('✅ Database connected at:', res.rows[0].now);
+    }
+})
 
 export default pool;

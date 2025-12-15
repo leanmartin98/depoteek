@@ -13,6 +13,7 @@
     "test:coverage": "vitest --coverage"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^1.0.6",
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.11.0",
     "lucide-react": "^0.548.0",

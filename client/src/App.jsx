@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Checkout from './pages/Checkout';
 
 
 function App() {
@@ -39,6 +40,12 @@ function App() {
                   <Profile />
                 </ProtectedRoute>
                 } />
+
+              <Route path='/checkout' element={
+                <ProtectedRoute>
+                  <Checkout />
+                </ProtectedRoute>
+              } />  
             </Routes>
           </main>
           <Footer />
